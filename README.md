@@ -5,14 +5,25 @@
 | Phase | Status | Details |
 |-------|--------|---------|
 | Setup | ✅ Complete | Kali VM, TryHackMe, GitHub |
-| Linux Fundamentals | ✅ Complete | [Lab 01](labs/2026-03-05-linux-fundamentals-complete.md) |
-| **Nmap Reconnaissance** | **✅ Complete** | **[Lab 02](labs/2026-03-08-nmap-home-recon.md)** – 4 scans, analysis |
+| Linux Fundamentals | ✅ Complete | [THM Writeup](writeups/tryhackme/2026-03-05-linux-fundamentals-complete.md) |
+| **Nmap Reconnaissance** | **✅ Complete** | **[Lab 01](labs/2026-03-08-nmap-home-recon.md)** – 4 scans, analysis |
 | NSE Vulns | ⏳ Next | Script scanning |
 | Python Tools | 🔄 Planned | Custom scanners |
 
-## 🛠️ Labs Overview
-- **Lab 01:** Linux commands & fundamentals (Mar 05)
-- **Lab 02:** Nmap home router recon (TCP/UDP/Service, Mar 08) ← **Latest!**
+## 📁 Repository Structure
+- **labs/** Hands-on projects
+- **setup/** Environment setup
+- **writeups/** CTF solutions
+  - tryhackme/ Linux Fundamentals
+- **notes/** Cheatsheets (soon)
+- **recon/** Network maps (soon)
+- **tools/** Scripts (soon)
+
+
+
+## 🛠️ Content Overview
+**Labs:**
+- [Nmap Home Recon](labs/2026-03-08-nmap-home-recon.md) – TCP/UDP/Service scans
   
 ## 🎯 Skills Demonstrated
 - Reconnaissance: nmap -sn, -sV, -sU
