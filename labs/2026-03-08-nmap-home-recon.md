@@ -1,4 +1,4 @@
-# Lab 02: Nmap Network Reconnaissance
+# Lab 01: Nmap Network Reconnaissance
 **Date:** Mar 08, 2026 | **Author:** S. Fischer | **Tool:** nmap on Kali Linux
 
 ## 🎯 Objectives
