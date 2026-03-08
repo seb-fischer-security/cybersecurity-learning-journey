@@ -10,17 +10,6 @@
 | NSE Vulns | ⏳ Next | Script scanning |
 | Python Tools | 🔄 Planned | Custom scanners |
 
-## 📁 Repository Structure
-- **labs/** Hands-on projects
-- **setup/** Environment setup
-- **writeups/** CTF solutions
-  - tryhackme/ Linux Fundamentals
-- **notes/** Cheatsheets (soon)
-- **recon/** Network maps (soon)
-- **tools/** Scripts (soon)
-
-
-
 ## 🛠️ Content Overview
 **Labs:**
 - [Nmap Home Recon](labs/2026-03-08-nmap-home-recon.md) – TCP/UDP/Service scans
