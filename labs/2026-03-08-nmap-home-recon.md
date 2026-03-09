@@ -29,7 +29,7 @@
 
 ### 3. Service Version (`-sV`)
 **Command:** `nmap -sV 192.168.1.1`  
-**Duration:** 36.1s | **Service:** lighttpd 1.4.35 (80/tcp)  
+**Duration:** 36.1s | **Service:** ZTE web server 1.0 (80/tcp)  
 
 <img width="728" height="582" alt="Screenshot 2026-03-08 013226" src="https://github.com/user-attachments/assets/b55971a4-91eb-4b51-af40-3427938c3a09" />
 
@@ -44,12 +44,12 @@
 |-----------|---------|------------|----------|
 | Host Discovery | `nmap -sn 192.168.1.0/24` | 256 hosts | 1.5s |
 | TCP | `nmap 192.168.1.1` | 80/tcp, 53/tcp filtered | 4.8s |
-| Service Version | `nmap -sV 192.168.1.1` | lighttpd 1.4.35 | 36.1s |
+| Service Version | `nmap -sV 192.168.1.1` | ZTE web server 1.0 | 36.1s |
 | UDP | `nmap -sU 192.168.1.1` | 53/udp | 4.5s |
 
 ## 🔒 Security Assessment
 - ✅ **No default credentials** (admin/admin failed)
-- ⚠️ **lighttpd 1.4.35** → CVE research needed
+- ⚠️ **ZTE web server 1.0 (2015)** → CVE research needed
 - ✅ **Minimal attack surface** (only expected services)
 
 ## 💻 All Commands
