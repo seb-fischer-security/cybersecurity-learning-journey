@@ -25,19 +25,19 @@
 **Command:** `nmap 192.168.1.1`  
 **Duration:** 4.8s | **Ports:** 80/tcp http, 53/tcp filtered  
 
-<img width="712" height="572" alt="Screenshot 2026-03-08 011928" src="https://github.com/user-attachments/assets/dc682f7a-6d6b-4332-ba11-9c1d2744a3fb" />
+<img width="728" height="582" alt="Screenshot 2026-03-08 011928" src="https://github.com/user-attachments/assets/fd2caefa-833b-4736-ada7-d8cc56e83d49" />
 
 ### 3. Service Version (`-sV`)
 **Command:** `nmap -sV 192.168.1.1`  
 **Duration:** 36.1s | **Service:** lighttpd 1.4.35 (80/tcp)  
 
-<img width="683" height="536" alt="Screenshot 2026-03-08 013226" src="https://github.com/user-attachments/assets/77442246-7976-4d0d-ab0b-de6b87d3e526" />
+<img width="728" height="582" alt="Screenshot 2026-03-08 013226" src="https://github.com/user-attachments/assets/b55971a4-91eb-4b51-af40-3427938c3a09" />
 
 ### 4. UDP Scan (`-sU`)
 **Command:** `nmap -sU 192.168.1.1`  
 **Duration:** 4.5s | **Port:** 53/udp domain  
 
-<img width="684" height="550" alt="Screenshot 2026-03-08 013511" src="https://github.com/user-attachments/assets/784a912f-f3f7-407f-9b04-b71052772bac" />
+<img width="728" height="582" alt="Screenshot 2026-03-08 013511" src="https://github.com/user-attachments/assets/26e922a3-562a-4111-822f-8d431b680222" />
 
 ## 📈 Summary Table
 | Scan Type | Command | Open Ports | Duration |
@@ -54,7 +54,7 @@
 
 ## 💻 All Commands
 ```bash
-nmap -sn 192.168.1.0/24     # Find all hosts
+nmap -sn 192.168.1.0/24    # Find all hosts
 nmap 192.168.1.1           # TCP ports
 nmap -sV 192.168.1.1       # Service versions
 nmap -sU 192.168.1.1       # UDP ports
