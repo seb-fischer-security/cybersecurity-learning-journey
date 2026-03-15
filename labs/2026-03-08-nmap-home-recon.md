@@ -48,8 +48,15 @@
 | UDP | `nmap -sU 192.168.1.1` | 53/udp | 4.5s |
 
 ## 🔒 Security Assessment
+
 - ✅ **No default credentials** (admin/admin failed)
-- ⚠️ **ZTE web server 1.0 (2015)** → CVE research needed
+
+- ⚠️ **ZTE web server 1.0 (2015) detected**
+  - Manual CVE research performed using `searchsploit` (Exploit-DB).
+  - Multiple historical vulnerabilities exist for ZTE routers and firmware.
+  - However, none directly matched the identified router model or web interface.
+  - Further research would require exact firmware identification.
+
 - ✅ **Minimal attack surface** (only expected services)
 
 ## 💻 All Commands
