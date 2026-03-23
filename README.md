@@ -1,92 +1,96 @@
 # 🚀 Cybersecurity Learning Journey
-**Sebastian Fischer** | Started Jan 2026  
-🎯 **Goal:** Junior Pentester / SOC Analyst
+**S. Fischer** | Started Jan 2026  
+🎯 **Goal:** Pentester / SOC Analyst
 
 ---
 
-# 📈 Learning Progress
+## 📈 Progress
 
 | Phase | Status | Details |
-|------|--------|--------|
-| Environment Setup | ✅ Complete | Kali Linux VM, TryHackMe account, GitHub repo |
-| Linux Fundamentals | ✅ Complete | [TryHackMe Writeup](writeups/tryhackme/2026-03-05-linux-fundamentals-complete.md) |
-| Nmap Fundamentals | ✅ Complete | [TryHackMe Writeup](writeups/tryhackme/2026-03-10-further-nmap.md) |
-| Nmap Reconnaissance | ✅ Complete | [Lab 01 – Home Network Recon](labs/2026-03-08-nmap-home-recon.md) |
-| Nmap NSE Scanning | ✅ Complete | [Lab 02 – Vulnerability Scripts](labs/2026-03-09-nmap-nse-vuln-scan.md) |
-| Python Security Tools | 🔄 Planned | Custom scripts & automation |
+|-------|--------|---------|
+| Setup | ✅ Complete | [Kali VM Setup](setup/2026-03-05-kali-vm-setup.md) |
+| Linux Fundamentals | ✅ Complete | [THM Writeup](writeups/tryhackme/2026-03-05-linux-fundamentals-complete.md) |
+| Further Nmap | ✅ Complete | [THM Writeup](writeups/tryhackme/2026-03-10-further-nmap.md) |
+| Nmap Reconnaissance | ✅ Complete | [Lab 01](labs/2026-03-08-nmap-home-recon.md) |
+| NSE Vulnerability Scan | ✅ Complete | [Lab 02](labs/2026-03-09-nmap-nse-vuln-scan.md) |
+| Nmap Enumeration Workflow | ✅ Complete | [Lab 03](labs/2026-03-15-nmap-enumeration-workflow.md) |
+| Next Step | 🔄 In Progress | Nmap Scan Techniques |
 
 ---
 
-# 🧪 Labs
+## 🧪 Labs
 
-Hands-on cybersecurity labs performed in a controlled lab environment.
+Hands-on practical exercises focused on real-world cybersecurity workflows:
 
-### 🔎 Nmap Home Recon
-TCP / UDP scanning, service detection and network discovery  
-→ [View Lab](labs/2026-03-08-nmap-home-recon.md)
-
-### 🧠 Nmap NSE Vulnerability Scan
-Using the Nmap Scripting Engine to detect vulnerabilities  
-→ [View Lab](labs/2026-03-09-nmap-nse-vuln-scan.md)
+- 🔎 [Nmap Home Recon](labs/2026-03-08-nmap-home-recon.md)  
+- 🧠 [Nmap NSE Vulnerability Scan](labs/2026-03-09-nmap-nse-vuln-scan.md)  
+- ⚡ [Nmap Enumeration Workflow](labs/2026-03-15-nmap-enumeration-workflow.md)  
 
 ---
 
-# 📝 Writeups
+## 📘 TryHackMe Writeups
 
-Documentation of completed learning paths and exercises.
+Structured documentation of completed TryHackMe rooms:
 
-### 🐧 Linux Fundamentals (TryHackMe)
-Linux CLI basics, filesystem navigation, permissions and users  
-→ [Read Writeup](writeups/tryhackme/2026-03-05-linux-fundamentals-complete.md)
-
-### 🌐 Further Nmap (TryHackMe)
-Advanced Nmap scanning concepts, aggressive scans and NSE scripts  
-→ [Read Writeup](writeups/tryhackme/2026-03-10-further-nmap.md)
+- 🐧 [Linux Fundamentals](writeups/tryhackme/2026-03-05-linux-fundamentals-complete.md)  
+- 🌐 [Further Nmap](writeups/tryhackme/2026-03-10-further-nmap.md)  
 
 ---
 
-# 🛠️ Skills Demonstrated
+## 🛠️ Skills Demonstrated
 
-### Cybersecurity
-- Network Reconnaissance
-- Service Enumeration
-- Vulnerability Discovery
-- Pentesting Methodology
+### 🔍 Reconnaissance
+- Host Discovery (`nmap -sn`)
+- Port Scanning (`-sS`, `-p-`)
+- Service Detection (`-sV`)
 
-### Tools
-- Nmap (`-sn`, `-sV`, `-sU`, `-A`, `--script`)
-- Kali Linux
-- Linux Command Line
+### 🧠 Enumeration
+- Nmap Scripting Engine (`-sC`, `--script vuln`)
+- Service & Version Analysis
+- HTTP Header Analysis
+- SSL Certificate Enumeration
 
-### Professional Skills
-- Technical Documentation
-- Lab Reporting
+### 📊 Reporting
+- Structured Lab Documentation
+- Security Assessment
+- Screenshot-based Evidence
 - GitHub Project Documentation
 
 ---
 
-# 🎯 Current Focus
+## 🗂️ Repository Structure
 
-Currently learning:
-
-- Advanced Nmap scanning
-- Network enumeration
-- Python scripting for security tools
+```text
+cybersecurity-learning-journey/
+│
+├── labs/
+├── setup/
+├── writeups/
+│   └── tryhackme/
+```
 
 ---
 
-# 📫 Connect
+## 🎯 Current Focus
 
-- LinkedIn: *comming soon*  
+- Advanced Nmap Scanning Techniques  
+- Enumeration Depth  
+- Transition from Reconnaissance to Service Analysis  
+
+---
+
+## 📱 Connect
+
+- LinkedIn: *(add later)*
 - Email: email@seb-fischer.de  
-- Location: Siegen, Germany
+- Location: Siegen, Germany  
 
 ---
 
-💡 **Mission**
+## 🧠 Philosophy
 
-> Hands-on cybersecurity labs — building practical pentesting skills step by step.
+> Hands-on cybersecurity learning — building real skills through practical labs and structured documentation.
 
 ---
 
-*Last Updated: Mar 10, 2026*
+*Last Updated: 23 Mar 2026*
