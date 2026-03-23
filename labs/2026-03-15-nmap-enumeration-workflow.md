@@ -32,6 +32,15 @@ Command:
 nmap -sC -sV -O -oA lab03_router_enum 192.168.1.1
 ```
 
+**DNS Service (Port 53)**  
+<img src="https://github.com/user-attachments/assets/03616e83-2384-4ee2-b2d4-af4f7eb201b1" width="500"/>
+
+**HTTP Service (Port 80)**  
+<img src="https://github.com/user-attachments/assets/ce689ecd-4017-4b7e-81cd-23c12981ae86" width="500"/>
+
+**HTTPS Service (Port 443)**  
+<img src="https://github.com/user-attachments/assets/abf2d983-9a54-41ad-b5ef-63dab3c80c3f" width="500"/>
+
 Duration: ~35 seconds
 
 Purpose of flags:
