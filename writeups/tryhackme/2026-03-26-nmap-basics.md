@@ -267,3 +267,141 @@ This demonstrates how port scanning can directly lead to the discovery of **acce
 - `-sU` is required to discover UDP services  
 - `-F` and `-p` help control scan scope  
 - Full port scans (`-p-`) are useful for discovering hidden or uncommon services  
+
+---
+
+## 🧬 Task 4 – Version Detection
+
+After discovering open ports, the next step is identifying **which operating system and services are running** on the target.
+
+This provides much more context for further enumeration and possible vulnerability research.
+
+
+### 🖥️ OS Detection
+
+Nmap can attempt to identify the target operating system.
+
+```bash
+nmap -O 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-O` → **Operating System Detection**
+- Nmap analyzes different characteristics of the target host
+- It then makes an **educated guess** about the operating system
+
+This can help identify whether the target is running:
+
+- Linux
+- Windows
+- network appliances
+- embedded systems
+
+⚠️ Important:  
+OS detection is **not always 100% accurate**.  
+It should be treated as a **strong indicator**, not absolute proof.
+
+---
+
+### 🔎 Service and Version Detection
+
+To identify the software running behind open ports, Nmap provides version detection.
+
+```bash
+nmap -sV 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-sV` → **Service / Version Detection**
+- Attempts to identify:
+
+  - service name
+  - software version
+  - sometimes additional platform information
+
+This is especially useful for:
+
+- web servers
+- SSH services
+- FTP services
+- mail servers
+
+Version detection is critical because it can reveal **outdated or vulnerable software**.
+
+---
+
+### ⚡ Aggressive Scan
+
+Nmap also provides a more advanced all-in-one scan option.
+
+```bash
+nmap -A 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-A` enables:
+
+  - OS detection
+  - version detection
+  - traceroute
+  - additional default script scanning
+
+This is a powerful option for fast enumeration, but it is also:
+
+- louder
+- more detectable
+- more intrusive than basic scans
+
+For that reason, it is useful in labs and internal testing, but should be used carefully in real environments.
+
+---
+
+### 🚫 Skipping Host Discovery
+
+Sometimes a target does not respond during the host discovery phase, even though it is actually online.
+
+To force Nmap to scan anyway:
+
+```bash
+nmap -Pn 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-Pn` → Treat the target as **online**
+- Skips host discovery
+- Useful when ICMP or other discovery traffic is blocked
+
+This is especially relevant when scanning hosts behind firewalls or restrictive filtering rules.
+
+---
+
+### 🧪 Practical Findings
+
+Using version detection against the target revealed the following web server:
+
+```text
+lighttpd 1.4.74
+```
+
+This means:
+
+- the web service was successfully identified
+- software enumeration provided a **specific product and version**
+- this information could later be used for:
+
+  - vulnerability research
+  - exploit verification
+  - service fingerprinting
+
+
+## 📌 Key Takeaways
+
+- `-O` helps estimate the target operating system  
+- `-sV` reveals service and software version details  
+- `-A` combines multiple advanced enumeration features  
+- `-Pn` forces scans against hosts that appear offline  
+- Version detection is essential for identifying potentially outdated services  
