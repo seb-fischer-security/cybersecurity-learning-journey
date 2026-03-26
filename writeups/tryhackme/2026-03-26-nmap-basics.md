@@ -404,4 +404,114 @@ This means:
 - `-sV` reveals service and software version details  
 - `-A` combines multiple advanced enumeration features  
 - `-Pn` forces scans against hosts that appear offline  
-- Version detection is essential for identifying potentially outdated services  
+- Version detection is essential for identifying potentially outdated services
+
+---
+
+## ⏱️ Task 5 – Timing Control
+
+Nmap provides several options to control **how fast or slow** a scan should run.
+
+This is important because scan speed can affect:
+
+- detection by security tools
+- scan reliability
+- overall scan duration
+
+
+### 🚀 Timing Templates
+
+Nmap includes six built-in timing templates:
+
+| Template | Name |
+|--------|------|
+| `-T0` | paranoid |
+| `-T1` | sneaky |
+| `-T2` | polite |
+| `-T3` | normal |
+| `-T4` | aggressive |
+| `-T5` | insane |
+
+Example:
+
+```bash
+nmap -sS -T4 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-T0` to `-T2` → slower and quieter scans
+- `-T3` → default timing
+- `-T4` and `-T5` → much faster, but more noisy
+
+The non-numeric equivalent of `-T4` is:
+
+```text
+-T aggressive
+```
+
+---
+
+### ⚠️ Why Timing Matters
+
+Scan timing can influence how a target reacts.
+
+Slower scans may help with:
+
+- avoiding detection
+- reducing traffic spikes
+- working around unstable networks
+
+Faster scans may help with:
+
+- saving time
+- broad reconnaissance
+- lab environments and internal testing
+
+In real-world environments, timing should always be adjusted based on:
+
+- scan objective
+- network stability
+- detection risk
+
+---
+
+### 🔧 Additional Timing Controls
+
+Nmap also provides more advanced tuning options.
+
+#### Packet Rate Control
+
+```bash
+nmap --min-rate 100 --max-rate 500 10.114.181.209
+```
+
+- `--min-rate` → minimum number of packets per second
+- `--max-rate` → maximum number of packets per second
+
+These options allow more direct control over scan speed.
+
+---
+
+#### Host Timeout
+
+```bash
+nmap --host-timeout 30s 10.114.181.209
+```
+
+- `--host-timeout` → maximum time Nmap should wait for a host
+
+This is useful when a target is:
+
+- very slow
+- unstable
+- not responding reliably
+
+
+## 📌 Key Takeaways
+
+- Nmap timing can be adjusted depending on speed and stealth requirements  
+- `-T4` is equivalent to **aggressive timing**  
+- Slower scans may reduce detection risk  
+- Faster scans are useful in trusted or lab environments  
+- Additional options like `--min-rate` and `--host-timeout` provide more precise control  
