@@ -2,7 +2,12 @@
 
 📅 Date: 2026-03-26  
 🖥️ Environment: Kali Linux / TryHackMe AttackBox  
+🎯 Target: `10.114.181.209`  
 🛠️ Tool: nmap  
+
+
+
+<img width="1482" height="529" alt="Screenshot 2026-03-26 082133" src="https://github.com/user-attachments/assets/fed1ae5d-b655-41e7-ba23-aa18116e36a3" />
 
 ---
 
@@ -143,7 +148,6 @@ Examples include:
 - DNS → UDP/TCP 53
 - SSH → TCP 22
 
----
 
 ### 🔌 TCP Connect Scan
 
@@ -664,3 +668,84 @@ all in a single scan.
 - Saving scan results is a core reconnaissance best practice  
 - `-oA` is especially useful because it stores results in multiple formats at once  
 - Proper output handling improves analysis, reporting, and repeatability  
+
+---
+
+## ✅ Task 7 – Conclusion and Summary
+
+This room provided a strong foundation in using **Nmap for reconnaissance and service enumeration**.
+
+The key topics covered throughout the room included:
+
+- host discovery
+- port scanning
+- service and version detection
+- timing control
+- output formatting and reporting
+
+
+### 🧠 Key Learning Outcome
+
+One of the most important takeaways from this room is that **Nmap behaves differently depending on user privileges**.
+
+When Nmap is run with **sudo / root privileges**, it can use more advanced scan types such as:
+
+```bash
+sudo nmap -sS 10.114.181.209
+```
+
+This enables a **SYN Scan**, which requires the ability to craft raw packets.
+
+---
+
+### 👤 Running Nmap as a Local User
+
+If Nmap is run **without elevated privileges**:
+
+```bash
+nmap 10.114.181.209
+```
+
+it will **not** use a SYN scan by default.
+
+Instead, it will fall back to:
+
+```text
+Connect Scan
+```
+
+### 📌 Explanation
+
+This means Nmap will use:
+
+```text
+-sT
+```
+
+instead of:
+
+```text
+-sS
+```
+
+because a normal local user cannot create the raw packets required for a SYN scan.
+
+---
+
+### 🔁 Practical Difference
+
+| Privilege Level | Default Scan Type |
+|----------------|------------------|
+| Root / sudo | SYN Scan (`-sS`) |
+| Local user | Connect Scan (`-sT`) |
+
+This is an important operational detail because scan results, stealth, and behavior can differ depending on how Nmap is executed.
+
+
+## 📌 Final Takeaways
+
+- Nmap is a powerful and flexible reconnaissance tool  
+- Running Nmap with `sudo` unlocks more advanced scanning capabilities  
+- A local user scan defaults to a **Connect Scan (`-sT`)**  
+- Understanding scan behavior is just as important as memorizing commands  
+- This room covered the essential building blocks needed for more advanced Nmap usage  
