@@ -120,7 +120,6 @@ nmap -sL 192.168.0.0/24
 - Lists targets without scanning them
 - Useful to verify scan scope before execution
 
----
 
 ## 📌 Key Takeaways
 
@@ -128,4 +127,143 @@ nmap -sL 192.168.0.0/24
 - Host discovery (`-sn`) is the first step in scanning  
 - Local and remote scans behave differently  
 - Target definition is flexible and supports multiple formats  
-- Enumeration begins with identifying live hosts before deeper analysis  
+- Enumeration begins with identifying live hosts before deeper analysis
+
+---
+
+## 🚪 Task 3 – Port Scanning
+
+After identifying live hosts, the next step is determining **which services are listening** on the target system.
+
+A listening service means that a process is bound to a **TCP or UDP port** and is waiting for incoming connections.
+
+Examples include:
+
+- Web servers → TCP 80 / 443
+- DNS → UDP/TCP 53
+- SSH → TCP 22
+
+---
+
+### 🔌 TCP Connect Scan
+
+The most basic TCP scan is the **Connect Scan**.
+
+```bash
+nmap -sT 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-sT` → **TCP Connect Scan**
+- Attempts to complete the **full TCP three-way handshake**
+- If the port is open, Nmap establishes and then closes the connection
+
+This is the most straightforward TCP scan, but it is generally considered **less stealthy** because the full connection is completed.
+
+---
+
+### 🕵️ SYN Scan (Stealth Scan)
+
+A more common scan in pentesting is the **SYN Scan**.
+
+```bash
+nmap -sS 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-sS` → **TCP SYN Scan**
+- Sends only the initial **SYN packet**
+- If the port is open, the target responds with **SYN-ACK**
+- Nmap then replies with **RST** instead of completing the handshake
+
+This scan is often referred to as:
+
+- **Stealth Scan**
+- **Half-Open Scan**
+
+It is considered more stealthy because the full TCP connection is **never established**.
+
+---
+
+### 📡 UDP Scan
+
+Some services use **UDP instead of TCP**, so scanning UDP ports is also important.
+
+```bash
+nmap -sU 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-sU` → **UDP Scan**
+- Used to identify services listening on UDP ports
+- Common UDP services include:
+
+  - DNS
+  - DHCP
+  - NTP
+  - SNMP
+
+UDP scanning is often slower and less reliable than TCP scanning because UDP does not use a connection-based handshake.
+
+---
+
+### 🎯 Limiting Target Ports
+
+By default, Nmap scans the **top 1000 most common ports**.
+
+However, scans can be adjusted depending on the goal.
+
+#### Fast Mode
+
+```bash
+nmap -F 10.114.181.209
+```
+
+- `-F` → scans the **100 most common ports**
+
+#### Specific Port Range
+
+```bash
+nmap -p10-1024 10.114.181.209
+```
+
+- scans ports **10 through 1024**
+
+#### Full Port Scan
+
+```bash
+nmap -p- 10.114.181.209
+```
+
+- scans **all 65,535 TCP ports**
+
+This is the most thorough option and useful for identifying services running on **non-standard ports**.
+
+---
+
+### 🧪 Practical Findings
+
+During scanning of the target system:
+
+- **6 TCP ports** were identified as open
+- A **web server** was discovered on the target
+- Accessing the web service in the browser revealed the following flag:
+
+```text
+THM{SECRET_PAGE_38B9P6}
+```
+
+This demonstrates how port scanning can directly lead to the discovery of **accessible services and hidden content**.
+
+
+## 📌 Key Takeaways
+
+- Port scanning identifies which services are available on a target  
+- `-sT` performs a full TCP connection  
+- `-sS` is more stealthy and commonly used in pentesting  
+- `-sU` is required to discover UDP services  
+- `-F` and `-p` help control scan scope  
+- Full port scans (`-p-`) are useful for discovering hidden or uncommon services  
