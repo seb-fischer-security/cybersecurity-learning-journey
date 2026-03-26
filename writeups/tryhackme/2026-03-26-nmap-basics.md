@@ -515,3 +515,152 @@ This is useful when a target is:
 - Slower scans may reduce detection risk  
 - Faster scans are useful in trusted or lab environments  
 - Additional options like `--min-rate` and `--host-timeout` provide more precise control  
+
+---
+
+## 💾 Task 6 – Output Control
+
+Nmap provides several options to control **how much information is shown during a scan** and **how scan results are saved**.
+
+This is especially useful for:
+
+- long-running scans
+- troubleshooting
+- documentation
+- reporting
+
+
+### 🔊 Verbose Output
+
+To display more information while a scan is running:
+
+```bash
+nmap -v 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-v` → **Verbose mode**
+- Shows additional real-time scan progress
+- Useful for understanding what Nmap is doing during each phase
+
+This can include information such as:
+
+- host discovery progress
+- DNS resolution
+- port scan stages
+- discovered open ports
+
+Verbosity can also be increased further:
+
+```bash
+nmap -vv 10.114.181.209
+```
+
+This is helpful when learning or troubleshooting scan behavior.
+
+---
+
+### 🐞 Debugging Output
+
+For even more detailed internal information:
+
+```bash
+nmap -d 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-d` → **Debugging mode**
+- Displays internal scan logic and detailed troubleshooting information
+- Useful when analyzing unexpected behavior or understanding how Nmap processes a scan
+
+The answer to the room question was:
+
+```text
+-d
+```
+
+⚠️ Debug output can become extremely noisy, especially at higher levels.
+
+---
+
+### 📝 Saving Scan Results
+
+Saving scan output is a best practice because it allows results to be:
+
+- reviewed later
+- reused for reporting
+- parsed with other tools
+- preserved without rerunning scans
+
+Nmap supports multiple output formats.
+
+---
+
+### 📄 Human-Readable Output
+
+```bash
+nmap -oN scan.txt 10.114.181.209
+```
+
+- `-oN` → **Normal output**
+- Best for manual reading and documentation
+
+---
+
+### 🧾 XML Output
+
+```bash
+nmap -oX scan.xml 10.114.181.209
+```
+
+- `-oX` → **XML output**
+- Useful for automation and importing into tools
+
+---
+
+### 🔎 Grepable Output
+
+```bash
+nmap -oG scan.gnmap 10.114.181.209
+```
+
+- `-oG` → **grepable output**
+- Useful for command-line filtering with tools like:
+
+  - `grep`
+  - `awk`
+
+---
+
+### 📦 All Major Formats at Once
+
+```bash
+nmap -oA scan 10.114.181.209
+```
+
+### 📌 Explanation
+
+- `-oA` → saves results in all major formats:
+
+  - `scan.nmap`
+  - `scan.xml`
+  - `scan.gnmap`
+
+This is one of the most practical options because it provides:
+
+- readable output
+- machine-readable output
+- grep-friendly output
+
+all in a single scan.
+
+
+## 📌 Key Takeaways
+
+- `-v` enables verbose scan output  
+- `-d` enables debugging information  
+- Saving scan results is a core reconnaissance best practice  
+- `-oA` is especially useful because it stores results in multiple formats at once  
+- Proper output handling improves analysis, reporting, and repeatability  
