@@ -162,3 +162,120 @@ Understanding these flags makes scan behavior much easier to interpret.
 - TCP flags help define how communication behaves  
 - `SYN` starts a connection, while `RST` resets it  
 - Understanding TCP flags is essential for interpreting Nmap scan results  
+
+---
+
+## 🔌 Task 4 – TCP Connect Scan
+
+A **TCP Connect Scan** works by completing the full **TCP three-way handshake**.
+
+This is the most basic method of checking whether a TCP port is open.
+
+
+### 🔁 How It Works
+
+The scan follows the normal TCP connection process:
+
+1. Client sends **SYN**
+2. Server replies with **SYN/ACK** (if the port is open)
+3. Client sends **ACK**
+4. Nmap then tears the connection down with **RST/ACK**
+
+This means the connection is actually established briefly before being closed again.
+
+---
+
+### 🔧 Basic Command
+
+```bash
+nmap -sT 10.81.174.63
+```
+
+### 📌 Explanation
+
+- `-sT` → **TCP Connect Scan**
+- Completes the full TCP handshake
+- Used to identify **open TCP ports**
+
+This scan is especially important because it is the **default fallback scan** when Nmap is run **without elevated privileges**.
+
+In other words:
+
+- **local user** → `-sT`
+- **root / sudo** → `-sS` usually possible
+
+---
+
+### 🧠 Why It Matters
+
+A TCP Connect Scan is:
+
+- simple
+- reliable
+- easy to understand
+
+However, compared to a SYN scan, it is also:
+
+- more visible
+- less stealthy
+- more likely to generate logs
+
+This is because the target system sees a **real completed TCP connection attempt**.
+
+---
+
+### 🚀 Useful Additional Options
+
+#### Fast Mode
+
+```bash
+nmap -sT -F 10.81.174.63
+```
+
+- `-F` → scans only the **100 most common ports**
+- useful for quicker checks
+
+#### Sequential Port Order
+
+```bash
+nmap -sT -r 10.81.174.63
+```
+
+- `-r` → scans ports in **consecutive order**
+- instead of Nmap’s default randomized order
+
+This can be useful when testing how services behave during startup or when checking port consistency.
+
+---
+
+### 🧪 Practical Findings
+
+During the room scan, a **newly opened port** was identified:
+
+```text
+110/tcp
+```
+
+Nmap’s service guess for this port was:
+
+```text
+POP3
+```
+
+This indicates that a **mail-related service** had been added since the previous scan.
+
+This is a strong example of why repeat scanning matters:
+
+- new services can appear
+- attack surface can change over time
+- previously closed ports may become available later
+
+---
+
+## 📌 Key Takeaways
+
+- `-sT` performs a **TCP Connect Scan**  
+- It completes the full **TCP three-way handshake**  
+- This scan is the default when running Nmap without elevated privileges  
+- It is reliable, but less stealthy than a SYN scan  
+- Port `110/tcp` was discovered as newly open and identified as **POP3**  
